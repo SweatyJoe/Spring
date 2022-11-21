@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Table book</title>
+</head>
+<body style="background-color: #212529">
+<table th:each="el : ${books}">
+    <tr th:text="${el.bookName}"/>
+    <tr th:text="${el.bookAuthor}"/>
+    <tr th:text="${el.getBookPublisher()}"/>
+    <tr th:text="${el.getBookPublish()}"/>
+</table>
+</body>
+</html>
