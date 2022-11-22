@@ -6,10 +6,12 @@
 </head>
 <body style="background-color: #212529">
 <table th:each="el : ${books}">
-    <tr th:text="${el.bookName}"/>
+    <tr th:text="${el.getId()}"/>
+    <tr th:text="${el.getBookPublisher()}"/>
+    <!--<tr th:text="${el.bookName}"/>
     <tr th:text="${el.bookAuthor}"/>
     <tr th:text="${el.getBookPublisher()}"/>
-    <tr th:text="${el.getBookPublish()}"/>
+    <tr th:text="${el.getBookPublish()}"/>-->
 </table>
 </body>
 </html>

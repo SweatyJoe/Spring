@@ -1,8 +1,7 @@
 package by.demo.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
@@ -10,8 +9,6 @@ import java.util.Set;
 
 @Data
 @Entity
-@DynamicInsert
-@DynamicUpdate
 @Table(name = "BOOK")
 public class Book {
 
@@ -28,7 +25,7 @@ public class Book {
     @JoinColumn(name = "ID", nullable = false)
     private Set<Publisher> bookId;
 
-   /* @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "BOOK_PUBLISHER", nullable = false)
     private Publisher bookPublisher;*/
 
