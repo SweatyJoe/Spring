@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <link href="css\table.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-color: #212529">
+<table style="color: #ffffff">
+    <tr>
+        <th>ID</th>
+        <th>FIO</th>
+        <th>Days worked</th>
+        <th>Rate</th>
+        <th>Salary</th>
+    </tr>
+    <tr th:each="el : ${em}">
+        <th th:text="${el.id}"/>
+        <th th:text="${el.getFio()}"/>
+        <th th:text="${el.getDaywork()}"/>
+        <th th:text="${el.getRate()}"/>
+        <th th:text="${el.getSalary()}"/>
+    </tr>
+</table>
+<a href="/home" type="button">Clear</a>
+<br>
+<form id="addEmp" method="POST" action="/add" th:action="@{/add}">
+    <label>FIO
+        <input type="text" name="fio" required>
+    </label>
+    <label>Day worked
+        <input type="text" name="daywork" required>
+    </label>
+    <label>Rate
+        <input type="text" name="rate" required>
+    </label>
+    <label>Salary
+        <input type="text" name="salary" required>
+    </label>
+
+    <button type="submit">add</button>
+</form>
+
+</body>
+</html>
