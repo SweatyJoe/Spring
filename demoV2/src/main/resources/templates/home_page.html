@@ -29,17 +29,13 @@
     </table>
 </div>
 <br>
-<!--<p>
-    <input type="text" th:name="fio-in">
-    <a th:href="@{/home/{fio}(fio=${fio-in})}"
-</p>-->
 <div style="display: flex">
     <form action="/add" method="post">
         <div>
             <label>Добавление</label>
             <input type="text" placeholder="FIO" name="fio" required>
             <input type="number" placeholder="Days worked" name="emp_days" required>
-            <input type="text" placeholder="Salary rate" name="emp_rate" required>
+            <input type="text" placeholder="Salary rate(/10)" name="emp_rate" required>
             <input type="text" placeholder="Salary" name="emp_salary">
             <button type="submit">Insert new</button>
         </div>
@@ -50,7 +46,7 @@
             <input type="number" placeholder="id" name="id" required>
             <input type="text" placeholder="FIO" name="fio" required>
             <input type="number" placeholder="Days worked" name="emp_days" required>
-            <input type="text" placeholder="Salary rate" name="emp_rate" required>
+            <input type="text" placeholder="Salary rate(/10)" name="emp_rate" required>
             <input type="text" placeholder="Salary" name="emp_salary">
             <button type="submit">update</button>
         </div>
@@ -65,7 +61,6 @@
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
-
         // Loop through all table rows, and hide those who don't match the search query
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[1];
