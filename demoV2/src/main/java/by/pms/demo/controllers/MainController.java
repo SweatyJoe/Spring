@@ -22,7 +22,6 @@ public class MainController {
                             @RequestParam double emp_salary) {
         Employs emp = new Employs(fio, emp_days, emp_rate/10, emp_salary);
         employsRepository.save(emp);
-        employsRepository.saveAll(employsRepository.findAll());
         return "redirect:/home";
     }
 
