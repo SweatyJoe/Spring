@@ -22,7 +22,7 @@ public class MainController {
                             @RequestParam double emp_salary) {
         Employs emp = new Employs(fio, emp_days, emp_rate/10, emp_salary);
         employsRepository.save(emp);
-        employsRepository.saveAll(employsRepository.findAll());//idk)
+        employsRepository.saveAll(employsRepository.findAll());
         return "redirect:/home";
     }
 
@@ -36,7 +36,7 @@ public class MainController {
 
     //delete
     @GetMapping(path = "/delete/{id}")
-    public String delete(Model model, @PathVariable Long id) {
+    public String delete(@PathVariable Long id) {
         employsRepository.deleteById(id);
         return "redirect:/home";
     }
@@ -46,7 +46,7 @@ public class MainController {
                          @RequestParam String fio,
                          @RequestParam int emp_days,
                          @RequestParam double emp_rate,
-                         @RequestParam double emp_salary) throws Exception{
+                         @RequestParam double emp_salary) {
         try{
             Optional<Employs> e = employsRepository.findById(id);
             e.get().setFio(fio);
