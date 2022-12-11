@@ -19,9 +19,10 @@ public class MainController {
     public String addNewEmp(@RequestParam String fio,
                             @RequestParam int emp_days,
                             @RequestParam double emp_rate,
-                            @RequestParam double emp_salary) {
-        Employs emp = new Employs(fio, emp_days, emp_rate/10, emp_salary);
+                            @RequestParam double emp_salary_bonus) {
+        Employs emp = new Employs(fio, emp_days, emp_rate, emp_salary_bonus);
         employsRepository.save(emp);
+        employsRepository.saveAll(employsRepository.findAll());
         return "redirect:/home";
     }
 
@@ -45,13 +46,13 @@ public class MainController {
                          @RequestParam String fio,
                          @RequestParam int emp_days,
                          @RequestParam double emp_rate,
-                         @RequestParam double emp_salary) {
+                         @RequestParam double emp_salary_bonus) {
         try{
             Optional<Employs> e = employsRepository.findById(id);
             e.get().setFio(fio);
             e.get().setEmp_days(emp_days);
             e.get().setEmp_rate(emp_rate);
-            e.get().setEmp_salary(emp_salary);
+            e.get().setEmp_salary_bonus(emp_salary_bonus);
             employsRepository.save(e.get());
         } catch (Exception e){
             return "redirect:/home";

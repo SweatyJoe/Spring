@@ -14,6 +14,7 @@
             <th>FIO</th>
             <th>Days worked</th>
             <th>Rate</th>
+            <th>Salary bonus</th>
             <th>Salary</th>
         </tr>
         <tr th:each="el : ${emp}">
@@ -21,6 +22,7 @@
             <td th:text="${el.getFio()}"/>
             <td th:text="${el.getEmp_days()}"/>
             <td th:text="${el.getEmp_rate()}"/>
+            <td th:text="${el.getEmp_salary_bonus()}"/>
             <td th:text="${el.getEmp_salary()}"/>
             <td>
                 <a th:href="@{/delete/{id}(id=${el.getId()})}">Delete</a>
@@ -35,8 +37,8 @@
             <label>Добавление</label>
             <input type="text" placeholder="FIO" name="fio" required>
             <input type="number" placeholder="Days worked" name="emp_days" required>
-            <input type="text" placeholder="Salary rate(/10)" name="emp_rate" required>
-            <input type="text" placeholder="Salary" name="emp_salary">
+            <input type="text" placeholder="Salary rate" name="emp_rate" required>
+            <input type="text" placeholder="Salary bonus" name="emp_salary_bonus">
             <button type="submit">Insert new</button>
         </div>
     </form>
@@ -46,8 +48,8 @@
             <input type="number" placeholder="id" name="id" required>
             <input type="text" placeholder="FIO" name="fio" required>
             <input type="number" placeholder="Days worked" name="emp_days" required>
-            <input type="text" placeholder="Salary rate(/10)" name="emp_rate" required>
-            <input type="text" placeholder="Salary" name="emp_salary">
+            <input type="text" placeholder="Salary rate" name="emp_rate" required>
+            <input type="text" placeholder="Salary bonus" name="emp_salary_bonus">
             <button type="submit">update</button>
         </div>
     </form>
